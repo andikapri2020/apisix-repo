@@ -4,11 +4,11 @@ services:
     image: apache/apisix:3.9.1-debian
     restart: always
     volumes:
-      - ./apisix_conf/apisix.yaml:/mnt/apisix.yaml
-      - ./apisix_conf/config.yaml:/mnt/config.yaml
+      - ./apisix_conf/apisix.yaml:/usr/local/apisix/conf/apisix.yaml
+      - ./apisix_conf/config.yaml:/usr/local/apisix/conf/config.yaml
     environment:
       - APISIX_STAND_ALONE=true
-    command: ["sh", "-c", "cp /mnt/apisix.yaml /usr/local/apisix/conf/apisix.yaml && apisix start -c /mnt/config.yaml"]
+    command: ["sh", "-c", "apisix start -c /usr/local/apisix/conf/config.yaml"]
     ports:
       - "9180:9180/tcp"
       - "9080:9080/tcp"
