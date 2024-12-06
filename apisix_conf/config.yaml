@@ -1,0 +1,7 @@
+apisix:
+  delete_uri_tail_slash: false
+
+deployment:
+  role: data_plane
+  role_data_plane:
+    config_provider: yaml

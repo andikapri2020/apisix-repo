@@ -1,0 +1,24 @@
+routes:
+  -
+    uri: "/web/*"
+    service_id: 1
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"]
+    plugins:
+      proxy-rewrite:
+        regex_uri: ["^/web/(.*)", "/$1"]
+      cors: {}
+
+
+services:
+  -
+    id: 1
+    upstream_id: web_upstream
+
+upstreams:
+  -
+    id: "web_upstream"
+    nodes:
+      "web-6axrgn:80": 1
+    type: roundrobin
+
+#END
