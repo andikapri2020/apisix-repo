@@ -18,7 +18,7 @@ upstreams:
   -
     id: "web_upstream"
     nodes:
-      "web-6axrgn:80": 1
+      "web-6axrgn-web-1:80": 1
     type: roundrobin
 
 #END
