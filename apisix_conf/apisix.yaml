@@ -7,12 +7,23 @@ routes:
       proxy-rewrite:
         regex_uri: ["^/web/(.*)", "/$1"]
       cors: {}
+  -
+    uri: "/web-dua/*"
+    service_id: 2
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"]
+    plugins:
+      proxy-rewrite:
+        regex_uri: ["^/web-dua/(.*)", "/$1"]
+      cors: {}      
 
 
 services:
   -
     id: 1
     upstream_id: web_upstream
+  -
+    id: 2
+    upstream_id: web_dua_upstream    
 
 upstreams:
   -
@@ -20,5 +31,10 @@ upstreams:
     nodes:
       "web-6axrgn-web-1:80": 1
     type: roundrobin
+  -
+    id: "web_dua_upstream"
+    nodes:
+      "oriondevelopment-web-dua-86ot4a-web-1:80": 1
+    type: roundrobin    
 
 #END
