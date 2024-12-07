@@ -3,6 +3,7 @@ services:
   apisix:
     image: apache/apisix:3.9.1-debian
     restart: always
+    container_name: apisix
     volumes:
       - ./apisix_conf/apisix.yaml:/usr/local/apisix/conf/apisix.yaml
       - ./apisix_conf/config.yaml:/usr/local/apisix/conf/config.yaml
