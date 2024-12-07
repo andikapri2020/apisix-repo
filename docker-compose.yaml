@@ -10,7 +10,7 @@ services:
     environment:
       - APISIX_STAND_ALONE=true
       - APISIX_ENABLE_HOT_RELOAD=true
-    command: ["sh", "-c", "apisix start -c /usr/local/apisix/conf/config.yaml"]
+    command: ["sh", "-c", "apisix stop -c /usr/local/apisix/conf/config.yaml && apisix start -c /usr/local/apisix/conf/config.yaml"]
     ports:
       - "9180:9180/tcp"
       - "9080:9080/tcp"
