@@ -8,12 +8,12 @@ routes:
         regex_uri: ["^/web/(.*)", "/$1"]
       cors: {}
   -
-    uri: "/web-dua/*"
+    uri: "/web-duaaja/*"
     service_id: 2
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"]
     plugins:
       proxy-rewrite:
-        regex_uri: ["^/web-dua/(.*)", "/$1"]
+        regex_uri: ["^/web-duaaja/(.*)", "/$1"]
       cors: {}      
 
 
